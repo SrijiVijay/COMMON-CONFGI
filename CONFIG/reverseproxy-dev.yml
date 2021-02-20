@@ -1,10 +1,3 @@
-spring:
-    datasource:
-        driver-class-name: oracle.jdbc.OracleDriver
-        password: Amkcovertest
-        url: "jdbc:oracle:thin:@10.100.7.160:1521:BAGUS12C"
-        username: Amkcoverlivetest
-        
 # Discovery client Properties
 #indicates the duration the server waits since it received the last heartbeat before it can evict an instance from its registry
 #indicates the frequency the client sends heartbeats to indicate that it is still alive.
@@ -47,34 +40,6 @@ management:
 #When path starts with /nsure/authenticationservice/**, redirect it to authenticationservice
 zuul:
     routes:
-      thirdpartyservice:
-         service-id: thirdpartyservice
-         path: /rate/** , /path/** , /testmethod, /thirdpartyservice/** , /events/**
-      authenticationservice: 
-         service-id: authenticationservice
-         path: /authenticationservice/**
-      masterservice: 
-          service-id: masterservice
-          path: /masterservice/**
-      validationservice: 
-          service-id: validationservice
-          path: /validationservice/**
-      searchservice: 
-          service-id: searchservice
-          path: /searchservice/**
-      setupservice: 
-         service-id: setupservice
-         path: /setupservice/**
-      kafkaservice: 
-         service-id: kafkaservice
-         path: /kafkaservice/**
-      clientprofileservice: 
-         service-id: clientprofileservice
-         path: /clientprofileservice/**
-      premiumservice: 
-         service-id: premiumservice
-         path: /premiumservice/**
-      paymentservice: 
-         service-id: paymentservice
-         path: /paymentservice/**
-message: CONFIG DEV Zulu Properties
+      personservice: 
+         service-id: personservice
+         path: /personservice/**
