@@ -1,0 +1,58 @@
+logging:
+    pattern:
+        console: '%d{yyyy-MM-dd HH:mm:ss} - %msg%n'
+spring:
+    datasource:
+        driverClassName: org.h2.Driver
+        password: sa
+        url: jdbc:h2:mem:testdb
+        username: sa
+    h2:
+        console:
+            enabled: true
+            path: /h2
+    jpa:
+        database-platform: org.hibernate.dialect.H2Dialect
+        hibernate:
+            ddl-auto: none
+        properties:
+            hibernate:
+                format_sql: true
+                generate_statistics: false
+        show-sql: true
+
+# Discovery client Properties
+eureka:
+   instance:
+      prefer-ip-address: true
+      # instance-id: ${spring.application.name}:${server.port}
+   client:
+      registerWithEureka: true
+      fetchRegistry: true
+      serviceUrl:
+           #defaultZone: http://serviceregistry:8761/eureka
+           defaultZone: http://localhost:8761/eureka
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 90000
+
+ribbon:
+  ReadTimeout: 60000
+  ConnectTimeout: 3000
+  eureka:
+      enabled: true
+
+# Expose Endpoints for Actuator
+management:
+    endpoint:
+        chaosmonkey:
+            enabled: true
+    endpoints:
+        web:
+            exposure:
+                include: '*'
